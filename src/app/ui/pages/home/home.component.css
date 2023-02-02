@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    justify-items: flex-start;
+    background-color: burlywood;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 5px black;
+}
