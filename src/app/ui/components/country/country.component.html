@@ -1,1 +1,12 @@
-<p>country works!</p>
+<div class="container">
+    <h2>Create Country</h2>
+    <div>
+        <label>Country Name</label>
+        <input type="text" id="countryName" name="countryName" [(ngModel)]="countryName">
+    </div>
+    <div>
+        <label>Alpha Code</label>
+        <input type="text" id="alphaCode" name="alphaCode" [(ngModel)]="alphaCode">
+    </div>
+    <button (click)="submitCreateCountry()">Submit</button>
+</div>

@@ -15,10 +15,8 @@ export class CountryComponent implements OnInit {
   constructor(private countryUseCase: CountryUseCase) {
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  // This is technically the use case 
   submitCreateCountry() {
     this.validationPostCreateCountry();
   }

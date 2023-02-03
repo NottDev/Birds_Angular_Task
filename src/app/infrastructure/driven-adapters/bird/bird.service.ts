@@ -9,17 +9,30 @@ import { IBirdModel } from 'src/app/domain/models/bird/bird.model';
   providedIn: 'root'
 })
 export class BirdService extends BirdGateway {
-
+  
   private httpHeaders = new HttpHeaders({"Content-Type":"application/json"});
   constructor(public http: HttpClient) {
     super();
   }
-
+  
   createBird(params: IBirdModel): Observable<IBirdModel>{
     return this.http.post<IBirdModel>(
       environment.API_URL_BIRD,
       params,
       { headers: this.httpHeaders }
-    );
+      );
+    }
+
+    getBird(): Observable<IBirdModel[]> {
+      throw new Error('Method not implemented.');
+    }
+
+    updateBird(params: IBirdModel): Observable<IBirdModel> {
+      throw new Error('Method not implemented.');
+    }
+    
+    deleteBird(params: { id: number; }): Observable<boolean> {
+      throw new Error('Method not implemented.');
+    }
   }
-}
+  

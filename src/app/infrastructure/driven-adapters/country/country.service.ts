@@ -9,7 +9,7 @@ import { ICountryModel } from 'src/app/domain/models/country/country.model';
   providedIn: 'root'
 })
 export class CountryService extends CountryGateway{
-
+  
   private httpHeaders = new HttpHeaders({"Content-Type":"application/json"});
   constructor(public http: HttpClient) {
     super();
@@ -21,5 +21,15 @@ export class CountryService extends CountryGateway{
       params,
       { headers: this.httpHeaders }
     );
+  }
+
+  getCountry(): Observable<ICountryModel[]> {
+    throw new Error('Method not implemented.');
+  }
+  updateCountry(params: ICountryModel): Observable<ICountryModel> {
+    throw new Error('Method not implemented.');
+  }
+  deleteCountry(params: { id: number; }): Observable<boolean> {
+    throw new Error('Method not implemented.');
   }
 }
