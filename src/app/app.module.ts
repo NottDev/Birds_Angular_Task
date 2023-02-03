@@ -10,7 +10,7 @@ import { PagesModule } from './ui/pages/pages.module';
   ],
   imports: [
     BrowserModule,
-    PagesModule
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,40 @@
 <nav class="navbar">
-    <div class="container">
-      <span class="navbar-brand">BirdSanctuary</span>
+    <div class="logo_container">
+        <button type="button" class="navbar-brand" (click)="refreshPage()">BirdSanctuary</button>
+    </div>
+    <div class="option_container">
+
+      <button
+      type="button"
+      class="option"
+      (click)="this.countryVisible = false"
+      (click)="this.birdVisible = false"
+      (click)="this.zoneVisible = true">Zone</button>
+
+      <button
+      type="button"
+      class="option"
+      (click)="this.birdVisible = false"
+      (click)="this.zoneVisible = false"
+      (click)="this.countryVisible = true">Country</button>
+
+      <button
+      type="button"
+      class="option"
+      (click)="this.zoneVisible = false"
+      (click)="this.countryVisible = false"
+      (click)="this.birdVisible = true">Bird</button>
     </div>
 </nav>
+
+<div *ngIf = "zoneVisible">
+  <app-zone></app-zone>
+</div>
+
+<div *ngIf = "countryVisible">
+  <app-country></app-country>
+</div>
+
+<div *ngIf = "birdVisible">
+  <app-bird></app-bird>
+</div>

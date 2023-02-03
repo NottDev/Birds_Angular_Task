@@ -1,1 +1,12 @@
-<p>zone works!</p>
+<div class="container">
+    <form [formGroup]="zoneForm">
+        <h1 class="title">Create zone</h1>
+        <div class="input_container">
+            <label>Zone Name</label>
+            <input formControlName="zoneName" type="string" autocomplete="off">
+        </div>
+        <div>
+            <button type="button" (click)="submitCreateZone()">Submit</button>
+        </div>
+    </form>
+</div>

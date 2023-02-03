@@ -1,1 +1,20 @@
-<p>bird works!</p>
+<div class="container">
+    <h2>Create Bird</h2>
+    <div>
+        <label>Common Name</label>
+        <input type="text" id="commonName" name="commonName" [(ngModel)]="birdModel.commonName">
+    </div>
+    <div>
+        <label>Scientific Name</label>
+        <input type="text" id="scientificName" name="scientificName" [(ngModel)]="birdModel.scientificName">
+    </div>
+    <div>
+        <label>Color</label>
+        <input type="text" id="color" name="color" [(ngModel)]="birdModel.color">
+    </div>
+    <div>
+        <label>Countries Id</label>
+        <input type="radio" id="countriesId" name="countriesId" [(ngModel)]="birdModel.countriesId">
+    </div>
+    <button (click)="submitCreateBird()">Submit</button>
+</div>

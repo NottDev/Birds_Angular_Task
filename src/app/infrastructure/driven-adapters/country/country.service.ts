@@ -2,6 +2,8 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { CountryGateway } from 'src/app/domain/models/country/gateway/country.gateway';
+import { environment } from 'src/environments/environment';
+import { ICountryModel } from 'src/app/domain/models/country/country.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +15,11 @@ export class CountryService extends CountryGateway{
     super();
   }
 
-  createCountry(params: any): Observable<any>{
-    return this.http.post<any>("http://localhost:8087/country", params, {
-      headers: this.httpHeaders
-    });
+  createCountry(params: ICountryModel): Observable<ICountryModel>{
+    return this.http.post<ICountryModel>(
+      environment.API_URL_COUNT,
+      params,
+      { headers: this.httpHeaders }
+    );
   }
 }

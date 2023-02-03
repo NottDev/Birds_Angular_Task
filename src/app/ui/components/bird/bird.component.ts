@@ -9,7 +9,7 @@ import { BirdUseCase } from 'src/app/domain/usecase/bird/bird.usecase';
 })
 export class BirdComponent implements OnInit {
 
-  birdModel: any = {
+  birdModel: IBirdModel = {
     commonName: '',
     scientificName: '',
     color: '',
@@ -22,8 +22,7 @@ export class BirdComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This is technically the use case 
-  submitCreate() {
+  submitCreateBird() {
     this.validationPostCreateBird();
   }
 

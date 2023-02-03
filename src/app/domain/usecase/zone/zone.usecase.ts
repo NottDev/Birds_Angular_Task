@@ -8,10 +8,10 @@ import { IZoneModel } from "../../models/zone/zone.model";
 export class ZoneUseCase {
     constructor(private createZoneGateway: ZoneGateway) {}
 
-    createZone(params: IZoneModel): Observable<IZoneModel | null>{
+    createZone(params: {zoneName: string}): Observable<IZoneModel>{
         return this.createZoneGateway.createZone(params).pipe(
-            catchError(() => {
-                return of(null);
+            catchError((e) => {
+                return of(e);
             })
         );
     }

@@ -1,4 +1,4 @@
 export interface IZoneModel{
-    id?:number;
+    id:number;
     zoneName:string;
 }

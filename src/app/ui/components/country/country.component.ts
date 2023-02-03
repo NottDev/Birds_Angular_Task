@@ -9,10 +9,8 @@ import { CountryUseCase } from 'src/app/domain/usecase/country/country.usecase';
 })
 export class CountryComponent implements OnInit {
 
-  countryModel: any = {
-    countryName: '',
-    alphaCode: ''
-  }
+  countryName: string = '';
+  alphaCode: string = '';
 
   constructor(private countryUseCase: CountryUseCase) {
   }
@@ -21,19 +19,21 @@ export class CountryComponent implements OnInit {
   }
 
   // This is technically the use case 
-  submitCreate() {
+  submitCreateCountry() {
     this.validationPostCreateCountry();
   }
 
   private validationPostCreateCountry(): void{
 
     const country: ICountryModel = {
-      countryName: this.countryModel.countryName,
-      alphaCode: this.countryModel.alphaCode
+      countryName: this.countryName,
+      alphaCode: this.alphaCode
     }
 
     this.countryUseCase.createCountry(country).subscribe(result => {
       console.log(result);
+      this.countryName = '';
+      this.alphaCode = '';
     })
   }
 }

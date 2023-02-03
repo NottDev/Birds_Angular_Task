@@ -1,12 +1,12 @@
 .navbar {
     display: flex;
-    justify-items: flex-start;
+    justify-content: flex-start;
     background-color: burlywood;
-    border: 2px solid whitesmoke;
     border-radius: 5px;
+    box-shadow: 0px 2px 10px black;
 }
 
-.container {
+.logo_container {
     padding: 20px;
 }
 
@@ -14,4 +14,35 @@
     font-size: 30px;
     color: whitesmoke;
     text-shadow: 2px 2px 5px black;
+    background:fixed;
+    border: 0;
+    cursor: pointer;
+}
+
+.option_container {
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+}
+
+.option {
+    text-decoration: none;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(224, 200, 169);
+    padding: 20px;
+    margin: 10px 10px;
+    align-self: center;
+    font-size: 20px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 5px black;
+}
+
+.option:hover{
+    background-color: rgb(224, 171, 101);
+    cursor: pointer;
+}
+
+.option:focus{
+    background-color: rgb(218, 157, 78);
 }

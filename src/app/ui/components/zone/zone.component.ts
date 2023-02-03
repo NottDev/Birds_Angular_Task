@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IZoneModel } from 'src/app/domain/models/zone/zone.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ZoneUseCase } from 'src/app/domain/usecase/zone/zone.usecase';
 
 @Component({
@@ -9,28 +9,28 @@ import { ZoneUseCase } from 'src/app/domain/usecase/zone/zone.usecase';
 })
 export class ZoneComponent implements OnInit {
 
-  zoneModel: any = {
-    zoneName: ''
+  zoneForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private zoneUseCase: ZoneUseCase
+    ) {
+    this.zoneForm = this.formBuilder.group(
+      {
+        zoneName: ["", Validators.required]
+      }
+    )
   }
 
-  constructor(private zoneUseCase: ZoneUseCase) {
-  }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  // This is technically the use case 
-  submitCreate() {
+  submitCreateZone() {
     this.validationPostCreateZone();
   }
 
   private validationPostCreateZone(): void{
 
-    const zone: IZoneModel = {
-      zoneName: this.zoneModel.zoneName
-    }
-
-    this.zoneUseCase.createZone(zone).subscribe(result => {
+    this.zoneUseCase.createZone({zoneName: this.zoneForm.value.zoneName}).subscribe(result => {
       console.log(result);
     })
   }
