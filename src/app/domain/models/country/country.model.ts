@@ -1,5 +1,5 @@
 export interface ICountryModel{
-    id?:number;
+    id:number;
     countryName:string;
     alphaCode:string;
     countryZone?:number;

@@ -24,8 +24,12 @@ export class CountryService extends CountryGateway{
   }
 
   getCountry(): Observable<ICountryModel[]> {
-    throw new Error('Method not implemented.');
+    return this.http.get<any>(
+      environment.API_URL_COUNTRY,
+      { headers: this.httpHeaders }
+    )
   }
+  
   updateCountry(params: ICountryModel): Observable<ICountryModel> {
     throw new Error('Method not implemented.');
   }

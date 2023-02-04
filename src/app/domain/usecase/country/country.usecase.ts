@@ -6,13 +6,21 @@ import { CountryGateway } from "../../models/country/gateway/country.gateway";
 
 @Injectable()
 export class CountryUseCase {
-    constructor(private createCountryGateway: CountryGateway) {}
+    constructor(private countryGateway: CountryGateway) {}
 
     createCountry(params: ICountryModel): Observable<ICountryModel | null>{
-        return this.createCountryGateway.createCountry(params).pipe(
+        return this.countryGateway.createCountry(params).pipe(
             catchError(() => {
                 return of(null);
             })
         );
+    }
+
+    getCountry(): Observable<ICountryModel[] | null>{
+        return this.countryGateway.getCountry().pipe(
+            catchError((e) =>{
+                return of(e);
+            })
+        )
     }
 }

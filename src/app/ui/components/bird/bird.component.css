@@ -1,0 +1,20 @@
+.displayed_menu {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.container {
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    background-color: rgb(245, 223, 201);
+    box-shadow: 3px 3px 10px black;
+    border-radius: 15px;
+    margin: 25px 0px;
+    padding: 15px;
+}

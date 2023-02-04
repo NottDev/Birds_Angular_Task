@@ -1,12 +1,30 @@
-<div class="container">
-    <h2>Create Country</h2>
-    <div>
-        <label>Country Name</label>
-        <input type="text" id="countryName" name="countryName" [(ngModel)]="countryName">
+<div class="displayed_menu">
+    <div class="container">
+        <h2>Create Country</h2>
+        <div>
+            <label>Country Id</label>
+            <input type="number" id="id" name="id" [(ngModel)]="id">
+        </div>
+        <div>
+            <label>Country Name</label>
+            <input type="text" id="countryName" name="countryName" [(ngModel)]="countryName">
+        </div>
+        <div>
+            <label>Alpha Code</label>
+            <input type="text" id="alphaCode" name="alphaCode" [(ngModel)]="alphaCode">
+        </div>
+        <button (click)="submitCreateCountry()">Submit</button>
     </div>
-    <div>
-        <label>Alpha Code</label>
-        <input type="text" id="alphaCode" name="alphaCode" [(ngModel)]="alphaCode">
+    
+    <div class="container">
+        <h2 class="title">Countries Available</h2>
+        <div *ngIf="countriesAdded?.length > 0 else noCountryFound">
+            <div *ngFor="let country of countriesAdded">
+                {{country.id}}. {{country.countryName}} - {{country.alphaCode}}
+            </div>
+        </div>
+        <ng-template #noCountryFound>
+            <h3>No countries were found, please create one or refresh the page if yo already did it.</h3>
+        </ng-template>
     </div>
-    <button (click)="submitCreateCountry()">Submit</button>
 </div>

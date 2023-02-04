@@ -1,20 +1,32 @@
-<div class="container">
-    <h2>Create Bird</h2>
-    <div>
-        <label>Common Name</label>
-        <input type="text" id="commonName" name="commonName" [(ngModel)]="birdModel.commonName">
+
+
+<div class="displayed_menu">
+    <div class="container">
+        <h2>Create Bird</h2>
+        <div>
+            <label>Common Name</label>
+            <input type="text" id="commonName" name="commonName" [(ngModel)]="birdModel.commonName">
+        </div>
+        <div>
+            <label>Scientific Name</label>
+            <input type="text" id="scientificName" name="scientificName" [(ngModel)]="birdModel.scientificName">
+        </div>
+        <div>
+            <label>Color</label>
+            <input type="text" id="color" name="color" [(ngModel)]="birdModel.color">
+        </div>
+        <button (click)="submitCreateBird()">Submit</button>
     </div>
-    <div>
-        <label>Scientific Name</label>
-        <input type="text" id="scientificName" name="scientificName" [(ngModel)]="birdModel.scientificName">
+    
+    <div class="container">
+        <h2 class="title">Birds Available</h2>
+        <div *ngIf="birdsAdded?.length > 0 else noBirdFound">
+            <div *ngFor="let bird of birdsAdded">
+                {{bird.id}}. {{bird.commonName}} with {{bird.color}} color.
+            </div>
+        </div>
+        <ng-template #noBirdFound>
+            <h3>No birds were found, please create one or refresh the page if yo already did it.</h3>
+        </ng-template>
     </div>
-    <div>
-        <label>Color</label>
-        <input type="text" id="color" name="color" [(ngModel)]="birdModel.color">
-    </div>
-    <div>
-        <label>Countries Id</label>
-        <input type="radio" id="countriesId" name="countriesId" [(ngModel)]="birdModel.countriesId">
-    </div>
-    <button (click)="submitCreateBird()">Submit</button>
 </div>

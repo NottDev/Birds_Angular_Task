@@ -24,7 +24,10 @@ export class BirdService extends BirdGateway {
     }
 
     getBird(): Observable<IBirdModel[]> {
-      throw new Error('Method not implemented.');
+      return this.http.get<any>(
+        environment.API_URL_BIRD,
+        { headers: this.httpHeaders }
+      )
     }
 
     updateBird(params: IBirdModel): Observable<IBirdModel> {

@@ -9,13 +9,19 @@ import { CountryUseCase } from 'src/app/domain/usecase/country/country.usecase';
 })
 export class CountryComponent implements OnInit {
 
+  id: number = 0;
   countryName: string = '';
   alphaCode: string = '';
+  countriesAdded: ICountryModel[] | any = [];
 
   constructor(private countryUseCase: CountryUseCase) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.countryUseCase.getCountry().subscribe(result => {
+      this.countriesAdded = result;
+    })
+  }
 
   submitCreateCountry() {
     this.validationPostCreateCountry();
@@ -24,14 +30,13 @@ export class CountryComponent implements OnInit {
   private validationPostCreateCountry(): void{
 
     const country: ICountryModel = {
+      id: this.id,
       countryName: this.countryName,
       alphaCode: this.alphaCode
     }
 
     this.countryUseCase.createCountry(country).subscribe(result => {
       console.log(result);
-      this.countryName = '';
-      this.alphaCode = '';
     })
   }
 }

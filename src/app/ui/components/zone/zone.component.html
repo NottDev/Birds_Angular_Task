@@ -1,12 +1,26 @@
-<div class="container">
-    <form [formGroup]="zoneForm">
-        <h2 class="title">Create Zone</h2>
-        <div class="input_container">
-            <label>Zone Name</label>
-            <input formControlName="zoneName" type="string" autocomplete="off">
+<div class="displayed_menu">
+    <div class="container">
+        <form [formGroup]="zoneForm">
+            <h2 class="title">Create Zone</h2>
+            <div class="input_container">
+                <label>Zone Name</label>
+                <input formControlName="zoneName" type="string" autocomplete="off">
+            </div>
+            <div>
+                <button type="button" (click)="submitCreateZone()">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="container">
+        <h2 class="title">Zones Available</h2>
+        <div *ngIf="zonesAdded?.length > 0 else noZoneFound">
+            <div *ngFor="let zone of zonesAdded">
+                {{zone.id}}. {{zone.zoneName}}
+            </div>
         </div>
-        <div>
-            <button type="button" (click)="submitCreateZone()">Submit</button>
-        </div>
-    </form>
+        <ng-template #noZoneFound>
+            <h3>No zones were found, please create one or refresh the page if yo already did it.</h3>
+        </ng-template>
+    </div>
 </div>

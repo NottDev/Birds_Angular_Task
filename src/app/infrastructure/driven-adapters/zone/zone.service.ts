@@ -25,7 +25,10 @@ export class ZoneService extends ZoneGateway {
   }
 
   getZone(): Observable<IZoneModel[]> {
-    throw new Error('Method not implemented.');
+    return this.http.get<any>(
+      environment.API_URL_ZONE,
+      { headers: this.httpHeaders }
+    )
   }
 
   updateZone(params: { zoneName: string; }): Observable<IZoneModel> {

@@ -3,5 +3,5 @@ export interface IBirdModel{
     commonName:string;
     scientificName:string;
     color:string;
-    countriesId:number[] | null;
+    countriesId?:number[] | null;
 }

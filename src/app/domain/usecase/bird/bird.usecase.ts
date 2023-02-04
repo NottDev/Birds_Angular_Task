@@ -6,13 +6,21 @@ import { BirdGateway } from "../../models/bird/gateway/bird.gateway";
 
 @Injectable()
 export class BirdUseCase {
-    constructor(private createBirdGateway: BirdGateway) {}
+    constructor(private birdGateway: BirdGateway) {}
 
     createBird(params: IBirdModel): Observable<IBirdModel | null>{
-        return this.createBirdGateway.createBird(params).pipe(
+        return this.birdGateway.createBird(params).pipe(
             catchError(() => {
                 return of(null);
             })
         );
+    }
+
+    getBird(): Observable<IBirdModel[] | null>{
+        return this.birdGateway.getBird().pipe(
+            catchError((e) =>{
+                return of(e);
+            })
+        )
     }
 }

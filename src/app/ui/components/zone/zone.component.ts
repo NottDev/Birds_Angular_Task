@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IZoneModel } from 'src/app/domain/models/zone/zone.model';
 import { ZoneUseCase } from 'src/app/domain/usecase/zone/zone.usecase';
 
 @Component({
@@ -10,6 +11,7 @@ import { ZoneUseCase } from 'src/app/domain/usecase/zone/zone.usecase';
 export class ZoneComponent implements OnInit {
 
   zoneForm: FormGroup;
+  zonesAdded: IZoneModel[] | any = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,7 +24,11 @@ export class ZoneComponent implements OnInit {
     )
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.zoneUseCase.getZone().subscribe(result => {
+      this.zonesAdded = result;
+    })
+  }
 
   submitCreateZone() {
     this.validationPostCreateZone();
