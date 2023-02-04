@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  API_URL_BIRD: "https://jsonplaceholder.typicode.com/users",
-  API_URL_COUNT: "https://jsonplaceholder.typicode.com/users",
-  API_URL_ZONE: "https://jsonplaceholder.typicode.com/users"
+  API_URL_BIRD: "http://localhost:8087/bird",
+  API_URL_COUNTRY: "http://localhost:8087/country",
+  API_URL_ZONE: "http://localhost:8087/zone"
 };
 
 /*

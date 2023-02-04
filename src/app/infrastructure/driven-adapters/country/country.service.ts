@@ -17,7 +17,7 @@ export class CountryService extends CountryGateway{
 
   createCountry(params: ICountryModel): Observable<ICountryModel>{
     return this.http.post<ICountryModel>(
-      environment.API_URL_COUNT,
+      environment.API_URL_COUNTRY,
       params,
       { headers: this.httpHeaders }
     );
